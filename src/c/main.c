@@ -2,6 +2,7 @@
 
 static Window *s_main_window;
 static TextLayer *s_time_layer;
+static TextLayer *s_time_layer2;
 
 static void update_time() {
   // Get a tm structure
@@ -30,6 +31,13 @@ static void main_window_load(Window *window) {
   s_time_layer = text_layer_create(
       GRect(0, PBL_IF_ROUND_ELSE(58, 52), bounds.size.w, 50));
 
+  // Create the TextLayer with specific bounds
+  s_time_layer2= text_layer_create(
+      GRect(0, PBL_IF_ROUND_ELSE(0, 0), bounds.size.w, 50));
+
+  text_layer_set_text(s_time_layer2, "eTechLog8 rulez!");
+  
+  
   // Improve the layout to be more like a watchface
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorBlack);
