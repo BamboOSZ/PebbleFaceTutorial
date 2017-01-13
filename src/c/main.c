@@ -36,6 +36,9 @@ static void main_window_load(Window *window) {
       GRect(0, PBL_IF_ROUND_ELSE(0, 0), bounds.size.w, 50));
 
   text_layer_set_text(s_time_layer2, "eTechLog8 rulez!");
+  text_layer_set_text_color(s_time_layer2, GColorBlack);
+  text_layer_set_font(s_time_layer2, fonts_get_system_font(FONT_KEY_ROBOTO_CONDENSED_21));
+  text_layer_set_text_alignment(s_time_layer2, GTextAlignmentCenter);
   
   
   // Improve the layout to be more like a watchface
@@ -46,7 +49,8 @@ static void main_window_load(Window *window) {
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
 
   // Add it as a child layer to the Window's root layer
-  layer_add_child(window_layer, text_layer_get_layer(s_time_layer));
+  layer_add_child(window_layer, text_layer_get_layer(s_time_layer2));
+//  layer_add_child(window_layer, text_layer_get_layer(s_time_layer));
 }
 
 static void main_window_unload(Window *window) {
